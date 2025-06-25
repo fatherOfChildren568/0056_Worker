@@ -12,6 +12,7 @@ public class Message {
     public static final String PROMPT_AGE = "Age: ";
     public static final String PROMPT_SALARY = "Salary: ";
     public static final String PROMPT_WORK_LOCATION = "Work location: ";
+    public static final String PROMPT_ADJUST_SALARY = "Adjust salary: ";
 
     public static final String ERROR_LIMIT_CHOICE_FUNCTION = "Please choice 1 -> 5!";
     public static final String ERROR_INVALID_ID = "Invalid id";

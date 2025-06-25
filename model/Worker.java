@@ -88,9 +88,10 @@ public class Worker {
 
     @Override
     public String toString() {
+        System.out.format("%-10s%-10s%-10s%-10s%-10s%-15s\n", "Id", "Name", "Age", "Salary", "Status", "Date");
         StringBuilder result = new StringBuilder();
         for (Salary salaryHistory : salaryHistory) {
-            result.append(String.format("%-25s%-25s%-25d", id, name, age)).append(salaryHistory.toString()).append("\n");
+            result.append(String.format("%-10s%-10s%-10s%-10s", id, name, age, salary)).append(salaryHistory.toString()).append("\n");
         }
         return result.toString();
     }

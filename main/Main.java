@@ -83,7 +83,26 @@ class Main {
                         break;
                     // up salary
                     case 2:
-
+                        //input id
+                        System.out.print(Message.PROMPT_ID);
+                        int uId = Integer.parseInt(sc.nextLine());
+                        if(!Validator.isValidInt(uId)){
+                            System.out.println(Message.ERROR_INVALID_ID);
+                            continue;
+                        }
+                        //input up salary
+                        System.out.print(Message.PROMPT_ADJUST_SALARY);
+                        double upSalary = Double.parseDouble(sc.nextLine());
+                        if(!Validator.isValiDoulbe(upSalary)){
+                            System.out.println(Message.ERROR_INVALID_SALARY);
+                            continue;
+                        }
+                        //set data  for dto
+                        setDataForDto(uId, null, 0, upSalary, null);
+                        //set data for controller
+                        workerController.setInput(dto);
+                        //up salary
+                        workerController.upSalary();
                         break;
                     // down salary
                     case 3:
