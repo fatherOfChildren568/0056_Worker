@@ -20,6 +20,7 @@ public class Message {
     public static final String ERROR_INVALID_AGE = "Invalid age";
     public static final String ERROR_INVALID_SALARY = "Invalid salary";
     public static final String ERROR_INVALID_WORK_LOCATION = "Invalid work location";
+    public static final String ERROR_EXIST_ID = "Exist id in list workers";
 
-
+    public static final String HEADER_LIST = String.format("%-10s%-10s%-10s%-10s%-10s%-15s", "Id", "Name", "Age", "Salary", "Status", "Date");
 }
