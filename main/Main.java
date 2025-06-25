@@ -34,11 +34,15 @@ class Main {
                         System.out.print(Message.PROMPT_ID);
                         int id = Integer.parseInt(sc.nextLine());
                         // check valid id
-                        if (!Validator.isValidInt(id)) {
+                        if (!Validator.isValidId(id)) {
                             System.out.println(Message.ERROR_INVALID_ID);
                             continue;
                         }
-
+                        //check exist id in list workers
+                        if(workerController.isExist(id)){
+                            System.out.println(Message.ERROR_EXIST_ID);
+                            continue;
+                        }
                         // inpt name
                         System.out.print(Message.PROMPT_NAME);
                         String name = sc.nextLine();
@@ -52,7 +56,7 @@ class Main {
                         System.out.print(Message.PROMPT_AGE);
                         int age = Integer.parseInt(sc.nextLine());
                         // check valid age
-                        if (!Validator.isValidInt(age)) {
+                        if (!Validator.isValidAge(age)) {
                             System.out.println(Message.ERROR_INVALID_AGE);
                             continue;
                         }
@@ -74,43 +78,63 @@ class Main {
                             System.out.println(Message.ERROR_INVALID_WORK_LOCATION);
                             continue;
                         }
-                        //setDataForDto
+                        // setDataForDto
                         setDataForDto(id, name, age, salary, workLocation);
-                        //set data for controller
+                        // set data for controller
                         workerController.setInput(dto);
-                        //add worker
+                        // add worker
                         workerController.addWorker();
                         break;
                     // up salary
                     case 2:
-                        //input id
+                        // input id
                         System.out.print(Message.PROMPT_ID);
                         int uId = Integer.parseInt(sc.nextLine());
-                        if(!Validator.isValidInt(uId)){
+                        if (!Validator.isValidId(uId)) {
                             System.out.println(Message.ERROR_INVALID_ID);
                             continue;
                         }
-                        //input up salary
+                        // input up salary
                         System.out.print(Message.PROMPT_ADJUST_SALARY);
                         double upSalary = Double.parseDouble(sc.nextLine());
-                        if(!Validator.isValiDoulbe(upSalary)){
+                        if (!Validator.isValiDoulbe(upSalary)) {
                             System.out.println(Message.ERROR_INVALID_SALARY);
                             continue;
                         }
-                        //set data  for dto
-                        setDataForDto(uId, null, 0, upSalary, null);
-                        //set data for controller
+                        // set data for dto
+                        dto.setId(uId);
+                        dto.setAdjustedSalary(upSalary);
+                        // set data for controller
                         workerController.setInput(dto);
-                        //up salary
+                        // up salary
                         workerController.upSalary();
                         break;
                     // down salary
                     case 3:
-
+                        // input id
+                        System.out.print(Message.PROMPT_ID);
+                        int dId = Integer.parseInt(sc.nextLine());
+                        if (!Validator.isValidId(dId)) {
+                            System.out.println(Message.ERROR_INVALID_ID);
+                            continue;
+                        }
+                        // input up salary
+                        System.out.print(Message.PROMPT_ADJUST_SALARY);
+                        double downSalary = Double.parseDouble(sc.nextLine());
+                        if (!Validator.isValiDoulbe(downSalary)) {
+                            System.out.println(Message.ERROR_INVALID_SALARY);
+                            continue;
+                        }
+                        // set data for dto
+                        setDataForDto(dId, null, 0, downSalary, null);
+                        // set data for controller
+                        workerController.setInput(dto);
+                        // up salary
+                        workerController.downSalary();
                         break;
                     // display information salary
                     case 4:
-                        workerController.displayListWorkers();
+                        workerController.displayListSalaryOfWorkers();
                         break;
                     // exit
                     case 5:
@@ -119,7 +143,7 @@ class Main {
                         break;
                 }
             } catch (NumberFormatException e) {
-
+                System.out.println(e);
             }
 
         }
