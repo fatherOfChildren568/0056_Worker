@@ -12,7 +12,7 @@ public class Validator {
         return input >= min && input <= max;
     }
 
-    public static boolean isValidInt(int input) {
+    public static boolean isValidId(int input) {
         return input > 0;
     }
 
@@ -24,5 +24,8 @@ public class Validator {
         return input > 0;
     }
 
-    
+
+    public static boolean isValidAge(int input) {
+        return input >= 18 && input <= 50;
+    }
 }

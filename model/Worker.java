@@ -2,7 +2,7 @@ package model;
 
 import java.util.ArrayList;
 import java.util.List;
-
+import constants.SalaryStatus;
 import utility.GetLocalDate;
 
 public class Worker {
@@ -16,6 +16,7 @@ public class Worker {
 
     // constructor no parameter
     public Worker() {
+
     }
 
     // constructor have parameter
@@ -26,7 +27,7 @@ public class Worker {
         this.salary = salary;
         this.workLocation = workLocation;
         salaryHistory = new ArrayList<>();
-        this.salaryHistory.add(new Salary(salary, constants.SalaryStatus.DEFAULT, GetLocalDate.getDate()));
+        this.salaryHistory.add(new Salary(salary, SalaryStatus.DEFAULT, GetLocalDate.getDate()));
     }
 
     // getter and setter
@@ -88,13 +89,13 @@ public class Worker {
 
     @Override
     public String toString() {
-        System.out.format("%-10s%-10s%-10s%-10s%-10s%-15s\n", "Id", "Name", "Age", "Salary", "Status", "Date");
+
         StringBuilder result = new StringBuilder();
         for (Salary salaryHistory : salaryHistory) {
-            result.append(String.format("%-10s%-10s%-10s%-10s", id, name, age, salary)).append(salaryHistory.toString()).append("\n");
+            result.append(String.format("%-10s%-10s%-10s", id, name, age)).append(salaryHistory.toString())
+                    .append("\n");
         }
         return result.toString();
     }
 
-    
 }

@@ -8,7 +8,7 @@ public class DTO {
     private int age;
     private double salary;
     private String workLocation;
-    private double adjustedMoney;
+    private double adjustedSalary;
     private Salary salaryHistory;
 
     // constructor no parameter
@@ -16,14 +16,14 @@ public class DTO {
     }
 
     // constructor have parameter
-    public DTO(int id, String name, int age, double salary, String workLocation, double adjustedMoney,
+    public DTO(int id, String name, int age, double salary, String workLocation, double adjustedSalary,
             Salary salaryHistory) {
         this.id = id;
         this.name = name;
         this.age = age;
         this.salary = salary;
         this.workLocation = workLocation;
-        this.adjustedMoney = adjustedMoney;
+        this.adjustedSalary = adjustedSalary;
         this.salaryHistory = salaryHistory;
     }
 
@@ -68,12 +68,12 @@ public class DTO {
         this.workLocation = workLocation;
     }
 
-    public double getAdjustedMoney() {
-        return adjustedMoney;
+    public double getAdjustedSalary() {
+        return adjustedSalary;
     }
 
-    public void setAdjustedMoney(double adjustedMoney) {
-        this.adjustedMoney = adjustedMoney;
+    public void setAdjustedSalary(double adjustedSalary) {
+        this.adjustedSalary = adjustedSalary;
     }
 
     public Salary getSalaryHistory() {
